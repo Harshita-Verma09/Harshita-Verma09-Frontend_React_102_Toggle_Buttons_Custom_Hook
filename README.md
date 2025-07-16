@@ -37,7 +37,7 @@ Edit
 const [isOn, toggle] = useToggle(false);
 Returns a boolean value and a toggle function that flips it between true and false.
 
-
+```
 🚀 Getting Started
 1. Clone the Repo
 bash
@@ -68,7 +68,7 @@ const [showPassword, togglePassword] = useToggle(false);
 </button>
 
 
-
+```
 ##  🛠 Tech Stack
 React
 
