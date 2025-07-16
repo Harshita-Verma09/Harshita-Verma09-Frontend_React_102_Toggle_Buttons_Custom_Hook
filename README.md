@@ -1,12 +1,68 @@
-# React + Vite
+#  Toggle Feature Demo (React + Custom Hook)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project showcases a **React demo** with multiple toggle functionalities using a **custom useToggle hook**. It demonstrates common toggling use cases like:
 
-Currently, two official plugins are available:
+-  Show/Hide password
+-  Toggle Light/Dark Theme
+-  Show/Hide Secret Message
+-  Like Button Toggle
+-  Enable/Disable Notifications
+-  Show/Hide a Form
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+##  Project Structure
+src/
+├── custom/
+│ └── useToggle.ts # Custom hook for toggle state
+├── components/
+│ └── ToggleDemo.jsx # Demo component using the hook
+├── Toggle.css # Styling for toggle components
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+yaml
+Copy
+Edit
+
+---
+
+## 🧩 Custom Hook: useToggle
+
+ts
+function useToggle(initialValue: boolean): [boolean, () => void]
+Usage:
+
+js
+Copy
+Edit
+const [isOn, toggle] = useToggle(false);
+Returns a boolean value and a toggle function that flips it between true and false.
+
+  Getting Started  Clone the repo:
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/toggle-demo.git
+cd toggle-demo
+Install dependencies:
+
+bash
+Copy
+Edit
+npm install
+Run the app:
+
+bash
+Copy
+Edit
+npm start
+      Example Code Snippet
+jsx
+Copy
+Edit
+const [showPassword, togglePassword] = useToggle(false);
+
+<input type={showPassword ? "text" : "password"} />
+<button onClick={togglePassword}>
+  {showPassword ? "Hide" : "Show"}
+</button>
