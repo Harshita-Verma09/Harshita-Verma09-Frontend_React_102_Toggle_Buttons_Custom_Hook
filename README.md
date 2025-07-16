@@ -15,10 +15,10 @@ This project showcases a **React demo** with multiple toggle functionalities usi
 
 src/
 ├── custom/
-│ └── useToggle.ts ## Custom hook for toggle state
+│ └── useToggle.ts - Custom hook for toggle state
 ├── components/
-│ └── ToggleDemo.jsx ## Demo component using the hook
-├── Toggle.css ## Styling for toggle components
+│ └── ToggleDemo.jsx - Demo component using the hook
+├── Toggle.css - Styling for toggle components
 
 yaml
 Copy
