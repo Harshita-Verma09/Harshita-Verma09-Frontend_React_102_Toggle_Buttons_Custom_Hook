@@ -11,15 +11,6 @@ This project showcases a **React demo** with multiple toggle functionalities usi
 
 ---
 
-##  Project Structure
-
-src/
-├── custom/
-│ └── useToggle.ts - Custom hook for toggle state
-├── components/
-│ └── ToggleDemo.jsx - Demo component using the hook
-├── Toggle.css - Styling for toggle components
-
 yaml
 Copy
 Edit
