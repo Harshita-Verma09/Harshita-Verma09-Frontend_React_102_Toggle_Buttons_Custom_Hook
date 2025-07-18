@@ -1,75 +1,109 @@
-#  Toggle Feature Demo (React + Custom Hook)
+# React Custom Hook: useToggle & ToggleDemo Component
 
-This project showcases a **React demo** with multiple toggle functionalities using a **custom `useToggle` hook**. It demonstrates common toggling use cases like:
-
--  Show/Hide Password  
--  Toggle Light/Dark Theme  
--  Show/Hide Secret Message  
--  Like Button Toggle  
--  Enable/Disable Notifications  
--  Show/Hide a Form  
+This project demonstrates a reusable custom hook `useToggle` and a feature-rich demo component `ToggleDemo` built with React. The hook simplifies boolean state management, while the demo showcases multiple toggleable UI features.
 
 ---
 
-yaml
-Copy
-Edit
+## Features
+
+- **Custom Hook (`useToggle`)**  
+  Easily manage boolean state with a simple toggle function.
+
+- **ToggleDemo Component**  
+  - Password visibility toggle
+  - Dark/Light theme switch
+  - Secret message reveal
+  - Like button toggle
+  - Notification checkbox
+  - Show/Hide form with submit
+
+- **Modular & Reusable**  
+  The hook and demo are designed for easy integration into any React project.
 
 ---
 
-##  Custom Hook: `useToggle`
-
-```ts
-function useToggle(initialValue: boolean): [boolean, () => void]
-Usage:
-js
-Copy
-Edit
-const [isOn, toggle] = useToggle(false);
-Returns a boolean value and a toggle function that flips it between true and false.
+## Project Structure
 
 ```
-🚀 Getting Started
-1. Clone the Repo
-bash
-Copy
-Edit
-git clone https://github.com/your-username/toggle-demo.git
-cd toggle-demo
-2. Install Dependencies
-bash
-Copy
-Edit
-npm install
-3. Run the App
-bash
-Copy
-Edit
-npm start
+src/
+├── components/
+│   └── ToggleDemo.js      # Main demo component
+├── custom/
+│   └── useToggle.js       # Custom hook for boolean toggling
+├── Toggle.css             # Styles for the demo
+├── App.js                 # Entry point
+└── ...
 ```
-## Example Code Snippet
-jsx
-Copy
-Edit
-const [showPassword, togglePassword] = useToggle(false);
 
-<input type={showPassword ? "text" : "password"} />
-<button onClick={togglePassword}>
-  {showPassword ? "Hide" : "Show"}
-</button>
+---
 
+## Usage
 
+### 1. useToggle Hook
+
+```js
+import { useState, useCallback } from "react";
+
+function useToggle(initialValue) {
+    const [value, setValue] = useState(initialValue);
+    const toggle = useCallback(() => setValue(prev => !prev), []);
+    return [value, toggle];
+}
+
+export default useToggle;
 ```
-##  🛠 Tech Stack
-React
 
-TypeScript (for hook)
+### 2. ToggleDemo Component
 
-Custom Hook (useToggle)
+```js
+import React from "react";
+import useToggle from "../custom/useToggle";
+import "./Toggle.css";
 
-CSS (Toggle styles)
+const ToggleDemo = () => {
+    const [showPassword, togglePassword] = useToggle(false);
+    // ...other toggles
 
+    return (
+        <div className={darkMode ? "dark" : "light"}>
+            {/* Multiple toggleable UI features */}
+        </div>
+    );
+};
 
+export default ToggleDemo;
+```
 
-##  Inspiration
-This project demonstrates reusability in React using custom hooks to simplify toggle-related state logic across multiple UI features.
+---
+
+## Getting Started
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+2. **Run the app**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
+
+---
+
+## Customization
+
+- Add more toggles by calling `useToggle` in your components.
+- Style the demo via `Toggle.css`.
+
+---
+
+##  Customization
+
+- Add more toggles by calling `useToggle` in your components.
+- Style the demo via `Toggle.css`.
+
+---
